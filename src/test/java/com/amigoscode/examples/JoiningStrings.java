@@ -11,6 +11,10 @@ public class JoiningStrings {
     public void joiningStrings() throws Exception {
         List<String> names = List.of("anna", "john", "marcos", "helena", "yasmin");
         // "Anna, John, Marcos, Helena, Yasmin"
+        String collect = names.stream()
+                .map(name -> name.substring(0, 1).toUpperCase() + name.substring(1))
+                .collect(Collectors.joining(", "));
+        System.out.println(collect);
     }
 
     @Test
