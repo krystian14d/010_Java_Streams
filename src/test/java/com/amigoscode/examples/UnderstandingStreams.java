@@ -16,11 +16,9 @@ public class UnderstandingStreams {
         List<String> emails = MockData.getPeople()
                 .stream()
                 .map(Person::getEmail)
-                .collect(
-                        ArrayList::new,
+                .collect(ArrayList::new,
                         ArrayList::add,
-                        ArrayList::addAll
-                );
+                        (list1, list2) -> list1.addAll(list2));
         emails.forEach(System.out::println);
     }
 
